@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Book = props => {
-   const {name, genre, image}
+   const {name, genre, image} = props
+   console.log(props)
    return (
       <div>
          <h1>{name}</h1>
