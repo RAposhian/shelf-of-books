@@ -30,7 +30,7 @@ massive({
 //auth endpoints
 app.post('/auth/register', authCtrl.register);
 app.post(`/auth/login`, authCtrl.login);
-app.get(`/auth/logout`, authCtrl.login);
+app.get(`/auth/logout`, authCtrl.logout);
 
 //book list endpoints
 app.get(`/api/books`, mainCtrl.getAllBooks);
