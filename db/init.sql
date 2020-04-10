@@ -26,7 +26,7 @@ create table user_collection (
     collection_id serial primary key,
     user_id int references users(user_id),
     book_id int references books(book_id),
-    rating integer not null
+    rating integer
 );
 
 insert into books (
