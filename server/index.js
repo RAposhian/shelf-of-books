@@ -28,9 +28,9 @@ massive({
 })
 
 //auth endpoints
-app.post('/auth/register', authCtrl.register);
-app.post(`/auth/login`, authCtrl.login);
-app.get(`/auth/logout`, authCtrl.logout);
+app.post('/api/register', authCtrl.register);
+app.post(`/api/login`, authCtrl.login);
+app.get(`/api/logout`, authCtrl.logout);
 
 //book list endpoints
 app.get(`/api/books`, mainCtrl.getAllBooks);

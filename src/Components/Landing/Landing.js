@@ -7,7 +7,7 @@ const Landing = props => {
    
    return (
       <div>
-
+         Welcome to Shelf of Books!
       </div>
    )
 }
