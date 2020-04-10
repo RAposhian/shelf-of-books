@@ -11,9 +11,10 @@ const useAxios = (dataName, initialData = []) => {
   const [axiosData, setAxiosData] = useState(initialData)
   useEffect(() => {
     axios
-      .get(url)
-      .then(({ data }) => setAxiosData(data))
-      .catch((err) => console.log(err))
+    .get(url)
+    .then(({ data }) => setAxiosData(data))
+    .catch((err) => console.log(err))
+    // eslint-disable-next-line
   }, [dataName])
   return [
     axiosData,

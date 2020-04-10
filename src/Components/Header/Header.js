@@ -6,6 +6,7 @@ const Header = props => {
    //import links and setup logout button
    //possibly making this a drop down menu with links
    //set up conditional rendering to show collection link
+   //add conditional rendering for logout button
    return (
       <div>
          <Link to='/'><button>Logout</button></Link>

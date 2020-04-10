@@ -7,7 +7,7 @@ const BookDisplay =  props => {
   
    useEffect(() =>{
       getBooks()
-   }, [])
+   })
    
    return (
       <div>
