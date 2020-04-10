@@ -32,3 +32,5 @@ app.post('/auth/register', authCtrl.register);
 app.post(`/auth/login`, authCtrl.login);
 app.get(`/auth/logout`, authCtrl.login);
 
+//book list endpoints
+app.get(`/api/books`, mainCtrl.getAllBooks);
