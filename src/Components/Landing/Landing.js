@@ -1,8 +1,9 @@
 import React from 'react';
 import useInput from '../../Hooks/useInput';
-import useAxios from '../../Hooks/useAxios';
-import userInfo from '../../redux/userReducer';
+// import useAxios from '../../Hooks/useAxios';
+import {userInfo} from '../../redux/userReducer';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 
 const Landing = props => {
@@ -14,10 +15,28 @@ const Landing = props => {
       password: ''
    })
 
-   const [login, {postLogin}] = useAxios('login');
-   const [Register, {postRegister}] = useAxios('register');
+   // const [login, {postLogin}] = useAxios('login');
+   // const [register, {postRegister}] = useAxios('register');
 
-   // const 
+   const handleRegister = () => {
+      axios.post('/api/register', {username, password})
+      .then(res => {
+         props.userInfo(res.data)
+         props.history.push('/bookdisplay')
+      })
+      .catch(err => console.log(err))
+   }
+
+   const handleLogin = () => {
+      axios.post('/api/login', {username, password})
+      .then(res => {
+         console.log(res.data)
+         props.userInfo(res.data)
+         props.history.push('/bookdisplay')
+      })
+      .catch(err => console.log(err))
+   }
+
 
    return (
       <div>
@@ -33,8 +52,10 @@ const Landing = props => {
                placeholder='Password' 
                type='password' 
                onChange={e => setInput(e)}/>
-            <button onClick={() => postLogin({username, password})}>Login</button>
-            <button onClick={() =>  postRegister({username, password})} >Register</button>
+            <button 
+               onClick={handleLogin}>Login</button>
+            <button 
+               onClick={handleRegister} >Register</button>
          </section>
          <section>
             <h1>Welcome to Shelf of Books</h1>

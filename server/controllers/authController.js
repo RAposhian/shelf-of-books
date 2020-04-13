@@ -32,13 +32,13 @@ module.exports = {
       
       const authorized = bcrypt.compareSync(password, checkUser[0].password);
       if (!authorized) {
-         return res.status(400).send('Username or Password is incorrect')
+         return res.status(401).send('Username or Password is incorrect')
       }
 
       delete checkUser[0].password
 
       req.session.user = checkUser[0]
-      res.status(200).send(req.session.user)
+      res.status(202).send(req.session.user)
    },
    logout: (req, res) => {
       req.session.destroy();

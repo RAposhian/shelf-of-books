@@ -1,14 +1,18 @@
-import React, {useEffect} from 'react';
-import useAxios from '../../Hooks/useAxios';
+import React, {useEffect, useState} from 'react';
+// import useAxios from '../../Hooks/useAxios';
+import axios from 'axios';
 
 const BookDisplay =  props => {
-   const [books, {getBooks}] = useAxios('books');
-
+   // const [books, {getBooks}] = useAxios('books');
+   const [books, setBooks] = useState([])
   
-   // useEffect(() =>{
-   //    getBooks()
-   //    
-   // })
+   useEffect(() =>{
+      axios.get('/api/books')
+      .then(res => {
+         setBooks(res.data);
+      })
+      
+   }, [])
    
    return (
       <div>
