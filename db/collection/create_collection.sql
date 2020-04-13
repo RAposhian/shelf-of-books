@@ -3,4 +3,4 @@ insert into user_collection (
 ) values (
    $1
 )
-returning cart_id;
+returning collection_id;

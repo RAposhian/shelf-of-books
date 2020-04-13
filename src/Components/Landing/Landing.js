@@ -1,6 +1,8 @@
 import React from 'react';
 import useInput from '../../Hooks/useInput';
-import useAxios from '../../Hooks/useAxios'
+import useAxios from '../../Hooks/useAxios';
+import userInfo from '../../redux/userReducer';
+import {connect} from 'react-redux';
 
 
 const Landing = props => {
@@ -12,15 +14,13 @@ const Landing = props => {
       password: ''
    })
 
-   const [login, {postLogin}] = useAxios('login')
-   const [Register, {postRegister}] = useAxios('register')
+   const [login, {postLogin}] = useAxios('login');
+   const [Register, {postRegister}] = useAxios('register');
+
+   // const 
 
    return (
       <div>
-         <section>
-            <h1>Welcome to Shelf of Books</h1>
-            <img src='http://clipart-library.com/image_gallery/53417.png' alt='bookShelf'/>
-         </section>
          <section>
             <input 
                name='username' 
@@ -36,9 +36,13 @@ const Landing = props => {
             <button onClick={() => postLogin({username, password})}>Login</button>
             <button onClick={() =>  postRegister({username, password})} >Register</button>
          </section>
+         <section>
+            <h1>Welcome to Shelf of Books</h1>
+            <img src='http://clipart-library.com/image_gallery/53417.png' alt='bookShelf'/>
+         </section>
          
       </div>
    )
 }
 
-export default Landing;
+export default connect(null, {userInfo})(Landing);

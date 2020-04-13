@@ -5,9 +5,10 @@ const BookDisplay =  props => {
    const [books, {getBooks}] = useAxios('books');
 
   
-   useEffect(() =>{
-      getBooks()
-   })
+   // useEffect(() =>{
+   //    getBooks()
+   //    
+   // })
    
    return (
       <div>
