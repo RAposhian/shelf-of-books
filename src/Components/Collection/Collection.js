@@ -9,14 +9,26 @@ const Collection = props => {
 
 
    useEffect(() => {
+      handleGet();
+       // eslint-disable-next-line
+   }, [])
+   
+   const handleGet = () => {
       axios.get(`/api/collection/${props.user.collection_id}`)
       .then(res => {
          setBooks(res.data)
       })
       .catch(err => console.log(err))
-   }, [props.user.collection_id])
 
-   
+   }
+
+   const handleDelete = id => {
+      axios.delete(`/api/collection/${id}`)
+      .then(() => {
+         handleGet()
+      })
+      .catch(err => console.log(err))
+   }
 
    return (
       <div>
@@ -26,7 +38,7 @@ const Collection = props => {
          <h2>{e.author}</h2>
          <h2>{e.genre}</h2>
          <img src={e.image} alt={e.name}/>
-         <button>Remove from Collection</button>
+         <button onClick={() => handleDelete(e.book_id)} >Remove from Collection</button>
       </div>
       ))}
       </div>
