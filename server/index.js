@@ -34,3 +34,7 @@ app.get(`/api/logout`, authCtrl.logout);
 
 //book list endpoints
 app.get(`/api/books`, mainCtrl.getAllBooks);
+
+//collection endpoints
+app.get(`/api/collection/:id`, mainCtrl.getCollection);
+app.post(`/api/collection-book`, mainCtrl.addBook);

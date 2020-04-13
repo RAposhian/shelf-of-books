@@ -11,6 +11,7 @@ const Header = props => {
       <div>
          <Link to='/'><button>Logout</button></Link>
          <Link to='/bookdisplay'>Books</Link>
+         <Link to='/collection'>Collection</Link>
          
       </div>
    )

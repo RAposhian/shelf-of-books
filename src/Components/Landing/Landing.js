@@ -30,7 +30,6 @@ const Landing = props => {
    const handleLogin = () => {
       axios.post('/api/login', {username, password})
       .then(res => {
-         console.log(res.data)
          props.userInfo(res.data)
          props.history.push('/bookdisplay')
       })
@@ -59,7 +58,7 @@ const Landing = props => {
          </section>
          <section>
             <h1>Welcome to Shelf of Books</h1>
-            <img src='http://clipart-library.com/image_gallery/53417.png' alt='bookShelf'/>
+            <img src='https://res.cloudinary.com/desyiuzzn/image/upload/v1586799305/refternu/xhdydkaq9ic5r1gg3iix.png' alt='bookShelf'/>
          </section>
          
       </div>
