@@ -42,5 +42,6 @@ module.exports = {
       db.collection.update_rating(+ratingInput, book_id, collection_id)
       .then(() => res.sendStatus(200))
       .catch(err => res.status(500).send(err))
+      
    }
 }
