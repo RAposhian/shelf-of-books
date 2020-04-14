@@ -4,7 +4,26 @@ import useInput from '../../Hooks/useInput';
 import {userInfo} from '../../redux/userReducer';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import styled from 'styled-components';
+import Button from '../../StyleComponents/Button'
 
+const LandingContainer = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+`;
+
+const InputContainer = styled.section`
+   display: flex;
+   margin: 10px;
+   max-width: auto;
+`;
+
+const Input = styled.input`
+   width: 100px;
+   margin: 5px;
+`;
 
 const Landing = props => {
    // display a bookshelf picture that asks the visitor what they hope to find in their next book.
@@ -38,30 +57,32 @@ const Landing = props => {
 
 
    return (
-      <div>
-         <section>
-            <input 
+      <LandingContainer>
+         <InputContainer>
+            <Input 
                name='username' 
                value={username} 
                placeholder='Username' 
                onChange={e => setInput(e)}/>
-            <input 
+            <Input 
                name='password' 
                value={password} 
                placeholder='Password' 
                type='password' 
                onChange={e => setInput(e)}/>
-            <button 
-               onClick={handleLogin}>Login</button>
-            <button 
-               onClick={handleRegister} >Register</button>
-         </section>
+            <div style={{margin: '2px'}}>
+               <Button 
+                  onClick={handleLogin}>Login</Button>
+               <Button 
+                  onClick={handleRegister} >Register</Button>
+            </div>
+         </InputContainer>
          <section>
             <h1>Welcome to Shelf of Books</h1>
             <img src='https://res.cloudinary.com/desyiuzzn/image/upload/v1586799305/refternu/xhdydkaq9ic5r1gg3iix.png' alt='bookShelf'/>
          </section>
          
-      </div>
+      </LandingContainer>
    )
 }
 

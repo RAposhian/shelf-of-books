@@ -6,7 +6,9 @@ import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background-color: white;
+  background-color: #21abcd;
+  height: 100vh;
+  width: 100vw;
 `;
 
 function App(props) {

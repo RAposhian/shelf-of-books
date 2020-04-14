@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
+import Button from '../../StyleComponents/Button';
 
 const Links = styled.div`
    background-color: grey;
@@ -22,7 +23,7 @@ const Header = props => {
          <Link to=''><img src={props.user.image} alt={props.user.username}/></Link>
          <Link to='/bookdisplay' style={{textDecoration: 'none'}}>Books</Link>
          <Link to='/collection' style={{textDecoration: 'none'}}>Collection</Link>
-         <Link to='/'><button>Logout</button></Link>
+         <Link to='/'><Button>Logout</Button></Link>
          
       </Links>
    )
