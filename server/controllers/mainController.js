@@ -34,5 +34,13 @@ module.exports = {
       db.collection.remove_book(+id)
       .then(() => res.sendStatus(200))
       .catch(err => res.status(500).send(err))
+   },
+   updateRating: (req, res) => {
+      const db = req.app.get('db');
+      const {ratingInput, book_id, collection_id} = req.body;
+      console.log(req.body)
+      db.collection.update_rating(+ratingInput, book_id, collection_id)
+      .then(() => res.sendStatus(200))
+      .catch(err => res.status(500).send(err))
    }
 }

@@ -38,4 +38,5 @@ app.get(`/api/books`, mainCtrl.getAllBooks);
 //collection endpoints
 app.get(`/api/collection/:id`, mainCtrl.getCollection);
 app.post(`/api/collection-book`, mainCtrl.addBook);
-app.delete(`/api/collection/:id`, mainCtrl.removeBook)
+app.delete(`/api/collection/:id`, mainCtrl.removeBook);
+app.put('/api/rating', mainCtrl.updateRating);
