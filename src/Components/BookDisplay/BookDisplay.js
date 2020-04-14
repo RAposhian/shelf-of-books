@@ -9,10 +9,13 @@ const BookDisplay =  props => {
   
   
    useEffect(() =>{
+      if(!props.user.username){
+        return props.history.push('/')
+      }
       axios.get('/api/books')
       .then(res => {
          setBooks(res.data);
-      })
+      })// eslint-disable-next-line
    }, [])
 
    const handleAdd = id => {

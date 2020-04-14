@@ -1,16 +1,27 @@
 import React from 'react';
-import './App.css';
 import './reset.css'
 import routes from './routes';
 import Header from './Components/Header/Header';
+import {withRouter} from 'react-router-dom';
+import styled from 'styled-components';
 
-function App() {
+const Container = styled.div`
+  background-color: white;
+`;
+
+function App(props) {
   return (
-    <div className="App">
+    <Container>
+      {(props.location.pathname !== '/')
+      ?(
+          <Header />
+      ):
+      null
+      }
       <Header />
       {routes}
-    </div>
+    </Container>
   );
 }
 
-export default App;
+export default withRouter(App);
