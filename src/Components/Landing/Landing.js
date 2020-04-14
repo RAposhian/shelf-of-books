@@ -12,12 +12,14 @@ const LandingContainer = styled.div`
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   height: 100vh;
 `;
 
 const InputContainer = styled.section`
    display: flex;
    margin: 10px;
    max-width: auto;
+   margin-bottom: 70px;
 `;
 
 const Input = styled.input`

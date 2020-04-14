@@ -69,7 +69,7 @@ const Collection = props => {
                <button onClick={() => setToggle(true)}>Edit Rating</button>
             </>
          )}
-         <img src={e.image} alt={e.name}/>
+         <img src={e.image} alt={e.name} style={{width: '150px'}}/>
          <button onClick={() => handleDelete(e.book_id)} >Remove from Collection</button>
       </div>
       ))}

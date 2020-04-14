@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Button from '../../StyleComponents/Button';
 
 const Links = styled.div`
-   background-color: grey;
+   background: linear-gradient(to bottom, #6f9b1b, #ffe073);
    height: 50px;
    display: flex;
    justify-content: space-around;

@@ -33,7 +33,7 @@ const BookDisplay =  props => {
          <h1>{e.name}</h1>
          <h2>{e.author}</h2>
          <h2>{e.genre}</h2>
-         <img src={e.image} alt={e.name}/>
+         <img src={e.image} alt={e.name} style={{width: '150px'}}/>
          <button onClick={() => handleAdd(e.book_id)}>Add to Collection</button>
       </div>
       ))}

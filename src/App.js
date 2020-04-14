@@ -6,8 +6,8 @@ import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background-color: #21abcd;
-  height: 100vh;
+  background: linear-gradient(135deg, #21abcd, #9396e1);
+  height: auto;
   width: 100vw;
 `;
 
@@ -20,7 +20,6 @@ function App(props) {
       ):
       null
       }
-      <Header />
       {routes}
     </Container>
   );
