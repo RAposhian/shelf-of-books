@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import styled from 'styled-components';
 import Button from '../../StyleComponents/Button';
-import Book from '../../StyleComponents/Book';
+import BookStyle from '../../StyleComponents/BookStyle';
 import BookListContainer from '../../StyleComponents/BookListContainer';
 
 const H2 = styled.h2`
@@ -21,9 +21,9 @@ const Collection = props => {
    const [toggle, setToggle] = useState(false)
 
    useEffect(() => {
-      // if(!props.user.username){
-      //    return props.history.push('/')
-      // }
+      if(!props.user.username){
+         return props.history.push('/')
+      }
 
       handleGet();
        // eslint-disable-next-line
@@ -59,7 +59,7 @@ const Collection = props => {
    return (
       <BookListContainer>
          {books.map((e, i) => (
-      <Book key={i}>
+      <BookStyle key={i}>
          <img src={e.image} alt={e.name} style={{width: '150px', height: '220px', alignSelf: 'center'}}/>
          <H2>{e.name}</H2>
          <h2>{e.author}</h2>
@@ -82,7 +82,7 @@ const Collection = props => {
             </>
          )}
          <Button onClick={() => handleDelete(e.book_id)} >Remove from Collection</Button>
-      </Book>
+      </BookStyle>
       ))}
       </BookListContainer>
    )

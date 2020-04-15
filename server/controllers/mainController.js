@@ -18,7 +18,7 @@ module.exports = {
       const db = req.app.get('db');
       const {collection_id, book_id} = req.body;
 
-      let book = await db.collection.check_collection(+book_id);
+      let book = await db.collection.check_collection(+book_id, +collection_id);
       if (book[0]) {
          return res.status(400).send('Book already in collection')
       }
@@ -38,10 +38,18 @@ module.exports = {
    updateRating: (req, res) => {
       const db = req.app.get('db');
       const {ratingInput, book_id, collection_id} = req.body;
-      console.log(req.body)
+
       db.collection.update_rating(+ratingInput, book_id, collection_id)
       .then(() => res.sendStatus(200))
       .catch(err => res.status(500).send(err))
       
+   },
+   averageRating: (req, res) => {
+      const db = req.app.get('db');
+      const {id} = req.params
+
+      db.book.get_average_rating(+id)
+      .then(rating => res.status(200).send(rating))
+      .catch(err => res.status(500).send(err))
    }
 }

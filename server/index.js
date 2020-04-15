@@ -34,6 +34,7 @@ app.get(`/api/logout`, authCtrl.logout);
 
 //book list endpoints
 app.get(`/api/books`, mainCtrl.getAllBooks);
+app.get(`/api/rating/:id`, mainCtrl.averageRating);
 
 //collection endpoints
 app.get(`/api/collection/:id`, mainCtrl.getCollection);

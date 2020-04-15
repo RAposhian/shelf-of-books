@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Book = styled.div`
+const BookStyle = styled.div`
    display: flex;
    flex-direction: column;
    width: 250px;
@@ -13,4 +13,4 @@ const Book = styled.div`
    padding: 7px;
 `;
 
-export default Book;
+export default BookStyle;
