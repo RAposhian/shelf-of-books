@@ -33,8 +33,6 @@ const InputContainer = styled.section`
    margin: 1px;
    max-width: auto;
    margin-bottom: 10px;
-   ${'' /* border: 2px solid black;
-   border-radius: 15px; */}
    padding: 15px;
 `;
 
