@@ -6,9 +6,10 @@ import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background: linear-gradient(135deg, #21abcd, #9396e1);
+  background: linear-gradient(1turn, #5C656D, 10%, #DE7D00);
   height: auto;
   width: 100vw;
+  position: relative;
 `;
 
 function App(props) {

@@ -5,12 +5,14 @@ import styled from 'styled-components';
 import Button from '../../StyleComponents/Button';
 
 const Links = styled.div`
-   background: linear-gradient(to bottom, #6f9b1b, #ffe073);
+   background: linear-gradient(to bottom, #5C656D, #999999);
    height: 50px;
    display: flex;
    justify-content: space-around;
    align-items: center;
-
+   position: fixed;
+   top: 0;
+   width: 100vw;
 `;
 
 const Header = props => {

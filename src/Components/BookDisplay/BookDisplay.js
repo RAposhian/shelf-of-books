@@ -2,6 +2,17 @@ import React, {useEffect, useState} from 'react';
 // import useAxios from '../../Hooks/useAxios';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import Button from '../../StyleComponents/Button';
+import styled from 'styled-components';
+
+const BookListContainer = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+   margin-top: 50px;
+`;
+
 
 const BookDisplay =  props => {
    // const [books, {getBooks}] = useAxios('books');
@@ -9,9 +20,9 @@ const BookDisplay =  props => {
   
   
    useEffect(() =>{
-      if(!props.user.username){
-        return props.history.push('/')
-      }
+      // if(!props.user.username){
+      //   return props.history.push('/')
+      // }
       axios.get('/api/books')
       .then(res => {
          setBooks(res.data);
@@ -27,17 +38,17 @@ const BookDisplay =  props => {
    }
    
    return (
-      <div>
+      <BookListContainer>
       {books.map((e, i) => (
       <div key={i}>
          <h1>{e.name}</h1>
          <h2>{e.author}</h2>
          <h2>{e.genre}</h2>
-         <img src={e.image} alt={e.name} style={{width: '150px'}}/>
-         <button onClick={() => handleAdd(e.book_id)}>Add to Collection</button>
+         <img src={e.image} alt={e.name} style={{width: '150px', height: '220px'}}/>
+         <Button onClick={() => handleAdd(e.book_id)}>Add to Collection</Button>
       </div>
       ))}
-   </div>
+   </BookListContainer>
    )
 }
 
