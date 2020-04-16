@@ -73,8 +73,8 @@ const Landing = props => {
 
    const handleLogin = () => {
       axios.post('/api/login', {username, password})
-      .then(res => {
-         props.userInfo(res.data)
+      .then(async (res) => {
+        await  props.userInfo(res.data)
          props.history.push('/bookdisplay')
       })
       .catch(err => console.log(err))

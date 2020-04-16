@@ -22,10 +22,6 @@ const Collection = props => {
    const [toggle, setToggle] = useState(false)
 
    useEffect(() => {
-      if(!props.user.username){
-         return props.history.push('/')
-      }
-
       handleGet();
        // eslint-disable-next-line
    }, [])

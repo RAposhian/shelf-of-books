@@ -13,10 +13,7 @@ const BookDisplay =  props => {
 
   
   
-   useEffect(() =>{
-      if(!props.user.username){
-        return props.history.push('/')
-      }
+   useEffect(() =>{      
       axios.get('/api/books')
       .then(res => {
          setBooks(res.data);
@@ -32,7 +29,7 @@ const BookDisplay =  props => {
       .catch(err => console.log(err))
    }
 
-   
+ 
    
    return (
       <BookListContainer>
