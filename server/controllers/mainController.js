@@ -51,5 +51,14 @@ module.exports = {
       db.book.get_average_rating(+id)
       .then(rating => res.status(200).send(rating))
       .catch(err => res.status(500).send(err))
+   },
+   getSingleBook: (req, res) => {
+      const db = req.app.get('db');
+      const {id} = req.params;
+      const {collection_id} = req.query;
+
+      db.book.get_single_book(+collection_id, id)
+      .then(book => res.status(200).send(book))
+      .catch(err => res.status(500).send(err))
    }
 }

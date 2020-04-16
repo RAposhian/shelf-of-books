@@ -3,6 +3,7 @@ import Button from '../../StyleComponents/Button'
 import styled from 'styled-components';
 import BookStyle from '../../StyleComponents/BookStyle';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const H2 = styled.h2`
    font-size: 20px;
@@ -26,12 +27,11 @@ const Book = props => {
 
    return (
       <BookStyle>
-         <img src={image} alt={name} style={{width: '150px', height: '220px', alignSelf: 'center'}}/>
+         <Link to={`/book/${book_id}`} style={{alignSelf: 'center'}}><img src={image} alt={name} style={{width: '150px', height: '220px'}}/></Link>
          <H2>{name}</H2>
          <h2>{author}</h2>
          <h2 >{genre}</h2>
          <h2 style={{marginBottom: '10px'}}>{rating}</h2>
-         {console.log(rating)}
          <Button onClick={() => props.handleAdd(book_id)}>Add to Collection</Button>
       </BookStyle>   
    )

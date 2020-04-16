@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Button from '../../StyleComponents/Button';
 import BookStyle from '../../StyleComponents/BookStyle';
 import BookListContainer from '../../StyleComponents/BookListContainer';
+import {Link} from 'react-router-dom';
 
 const H2 = styled.h2`
    font-size: 20px;
@@ -60,7 +61,7 @@ const Collection = props => {
       <BookListContainer>
          {books.map((e, i) => (
       <BookStyle key={i}>
-         <img src={e.image} alt={e.name} style={{width: '150px', height: '220px', alignSelf: 'center'}}/>
+         <Link to={`/book/${e.book_id}`} style={{alignSelf: 'center'}}><img src={e.image} alt={e.name} style={{width: '150px', height: '220px'}}/></Link>
          <H2>{e.name}</H2>
          <h2>{e.author}</h2>
          <h2>{e.genre}</h2>

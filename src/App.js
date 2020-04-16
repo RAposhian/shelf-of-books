@@ -27,3 +27,9 @@ function App(props) {
 }
 
 export default withRouter(App);
+
+//colors for styling
+
+// Slate Gray: #5C656D
+// Rusty Orange: #DE7D00
+// Ash Gray: #999999

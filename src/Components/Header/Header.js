@@ -33,7 +33,7 @@ const Header = props => {
 
    return (
       <Links>
-         <Link to=''><img src={props.user.image} alt={props.user.username}/></Link>
+         <Link to='/profile'><img src={props.user.image} alt={props.user.username} style={{width: '30px'}} /></Link>
          <Link to='/bookdisplay' style={{textDecoration: 'none'}}>Books</Link>
          <Link to='/collection' style={{textDecoration: 'none'}}>Collection</Link>
          <Button onClick={handleLogout}>Logout</Button>
