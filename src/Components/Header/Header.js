@@ -28,11 +28,8 @@ class Header extends Component {
          user: this.props.user
       }
    }
-   //import links and setup logout button
    //possibly making this a drop down menu with links
-   //set up conditional rendering to show collection link
-   //add conditional rendering for logout button
-
+   
    componentDidMount = async ()  => {
       await this.getUser();
       if(!this.props.user.username){

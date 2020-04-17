@@ -19,7 +19,7 @@ const Collection = props => {
    //map over the list of collection books 
    const [books, setBooks] = useState([]);
    const [ratingInput, setRatingInput] = useState('');
-   const [toggle, setToggle] = useState(false)
+   const [toggle, setToggle] = useState(false);
 
    useEffect(() => {
       handleGet();
@@ -52,6 +52,7 @@ const Collection = props => {
       .catch(err => console.log(err))
    }
 
+   
 
    return (
       <BookListContainer>

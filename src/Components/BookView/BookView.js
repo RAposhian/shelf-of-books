@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
+import { GoStar } from 'react-icons/go';
 
 const SingleBookContainer = styled.div`
    display: flex;
@@ -27,15 +28,20 @@ const BookView = props => {
       // eslint-disable-next-line
    }, [])
    
-   const {name, author, rating, genre, image} = book;
+   const {name, author, rating, genre, image, description} = book;
+   const stars = []
+   for (let i = 0; i < rating; i++) {
+      stars.push(i)
+   }
+   let star = stars.map((i) => <GoStar key={i}/>)   
    return (
       <SingleBookContainer>
          <img src={image} alt={name} style={{width: '200px', alignSelf: 'center'}} />
          <H2>{name}</H2>
          <h2>By: {author}</h2>
          <h2>Genre: {genre}</h2>
-         <h2>Your rating:{rating}</h2>
-         <p>Description</p>
+         <h2>Your Rating:{star}</h2>
+         <p>Description: <br/> {description}</p>
       </SingleBookContainer>
    )
 }
