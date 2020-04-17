@@ -1,6 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
+
+const SingleBookContainer = styled.div`
+   display: flex;
+   flex-direction: column;
+   margin-top: 50px;
+   padding: 10px;
+   height: 100vh;
+`;
+
+const H2 = styled.h2`
+   font-size: 20px;
+   font-weight: bold;
+   margin: 2px;
+`;
 
 const BookView = props => {
    const [book, setBook] = useState({});
@@ -12,16 +27,16 @@ const BookView = props => {
       // eslint-disable-next-line
    }, [])
    
-   console.log(book);
    const {name, author, rating, genre, image} = book;
    return (
-      <div>
-         <img src={image} alt={name}/>
-         <h2>{name}</h2>
-         <h2>{author}</h2>
-         <h2>{genre}</h2>
-         <h2>{rating}</h2>
-      </div>
+      <SingleBookContainer>
+         <img src={image} alt={name} style={{width: '200px', alignSelf: 'center'}} />
+         <H2>{name}</H2>
+         <h2>By: {author}</h2>
+         <h2>Genre: {genre}</h2>
+         <h2>Your rating:{rating}</h2>
+         <p>Description</p>
+      </SingleBookContainer>
    )
 }
 

@@ -27,7 +27,7 @@ const Book = props => {
 
    return (
       <BookStyle>
-         <Link to={`/book/${book_id}`} style={{alignSelf: 'center'}}><img src={image} alt={name} style={{width: '150px', height: '220px'}}/></Link>
+         <Link to={``} style={{alignSelf: 'center'}}><img src={image} alt={name} style={{width: '150px', height: '220px'}}/></Link>
          <H2>{name}</H2>
          <h2>{author}</h2>
          <h2 >{genre}</h2>
