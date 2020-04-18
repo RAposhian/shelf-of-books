@@ -1,8 +1,10 @@
 insert into users (
    username,
-   password
+   password,
+   image
 ) values (
    ${username},
-   ${password}
+   ${password},
+   'https://res.cloudinary.com/desyiuzzn/image/upload/v1587158432/refternu/ntiqe8xu9raucashxaqp.png'
 )
 returning user_id, username

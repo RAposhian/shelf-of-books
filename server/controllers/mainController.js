@@ -6,44 +6,7 @@ module.exports = {
       .then(books => res.status(200).send(books))
       .catch(err => res.status(500).send(err))
    },
-   getCollection: (req, res) => {
-      const db = req.app.get('db');
-      const {id} = req.params;
-
-      db.collection.get_collection(+id)
-      .then(collection => res.status(200).send(collection))
-      .catch(err => res.status(500).send(err))
-   },
-   addBook: async(req, res) => {
-      const db = req.app.get('db');
-      const {collection_id, book_id} = req.body;
-
-      let book = await db.collection.check_collection(+book_id, +collection_id);
-      if (book[0]) {
-         return res.status(400).send('Book already in collection')
-      }
-
-      db.collection.add_book(+collection_id, +book_id)
-      .then(()=> res.sendStatus(200))
-      .catch(err => res.status(500).send(err))
-   },
-   removeBook: (req, res) => {
-      const db = req.app.get('db')
-      const {id} = req.params
-
-      db.collection.remove_book(+id)
-      .then(() => res.sendStatus(200))
-      .catch(err => res.status(500).send(err))
-   },
-   updateRating: (req, res) => {
-      const db = req.app.get('db');
-      const {ratingInput, book_id, collection_id} = req.body;
-
-      db.collection.update_rating(+ratingInput, book_id, collection_id)
-      .then(() => res.sendStatus(200))
-      .catch(err => res.status(500).send(err))
-      
-   },
+   
    averageRating: (req, res) => {
       const db = req.app.get('db');
       const {id} = req.params
@@ -60,5 +23,15 @@ module.exports = {
       db.book.get_single_book(+collection_id, id)
       .then(book => res.status(200).send(book))
       .catch(err => res.status(500).send(err))
+   },
+   addingBook: async(req, res) => {
+      const db = req.app.get('db');
+      const {name, genre, image, author} = req.body;
+
+      let bookId = await db.book.adding_book({name, genre, image});
+      let authorId = await db.book.adding_author({author});
+      
+      db.book.connect_book_authors(+bookId[0].book_id, +authorId[0].author_id)
+      
    }
 }

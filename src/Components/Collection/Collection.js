@@ -1,25 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import styled from 'styled-components';
-import Button from '../../StyleComponents/Button';
-import BookStyle from '../../StyleComponents/BookStyle';
 import BookListContainer from '../../StyleComponents/BookListContainer';
-import {Link} from 'react-router-dom';
-
-const H2 = styled.h2`
-   font-size: 20px;
-   font-weight: bold;
-   margin: 2px;
-`;
+import CollectionBook from '../CollectionBook/CollectionBook';
 
 
-const Collection = props => {
-   //attach redux to get user info and collection id. 
-   //map over the list of collection books 
+
+const Collection = props => { 
    const [books, setBooks] = useState([]);
-   const [ratingInput, setRatingInput] = useState('');
-   const [toggle, setToggle] = useState(false);
 
    useEffect(() => {
       handleGet();
@@ -32,7 +20,6 @@ const Collection = props => {
          setBooks(res.data)
       })
       .catch(err => console.log(err))
-
    }
 
    const handleDelete = id => {
@@ -43,44 +30,12 @@ const Collection = props => {
       .catch(err => console.log(err))
    }
 
-   const handleSubmit = id => {
-      axios.put('/api/rating', {ratingInput, book_id: id, collection_id: props.user.collection_id})
-      .then(() => {
-         setToggle(false)
-         handleGet();
-      })
-      .catch(err => console.log(err))
-   }
-
-   
 
    return (
-      <BookListContainer>
+      <BookListContainer style={{height: ''}}>
          {books.map((e, i) => (
-      <BookStyle key={i}>
-         <Link to={`/book/${e.book_id}`} style={{alignSelf: 'center'}}><img src={e.image} alt={e.name} style={{width: '150px', height: '220px'}}/></Link>
-         <H2>{e.name}</H2>
-         <h2>{e.author}</h2>
-         <h2>{e.genre}</h2>
-         {(toggle) ?
-         (
-            <>
-               <input 
-                  placeholder={e.rating}
-                  onChange={e => setRatingInput(e.target.value)}
-                  type='number' />
-               <Button onClick={() => handleSubmit(e.book_id)}>Submit</Button>
-            </>
-         )
-         :
-         (
-            <>
-               <h2>{e.rating}</h2>
-               <Button onClick={() => setToggle(true)}>Edit Rating</Button>
-            </>
-         )}
-         <Button onClick={() => handleDelete(e.book_id)} >Remove from Collection</Button>
-      </BookStyle>
+        <CollectionBook key={i} book={e} handleDelete={handleDelete}/>    
+   
       ))}
       </BookListContainer>
    )

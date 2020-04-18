@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import BookStyle from '../../StyleComponents/BookStyle';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import { GoStar } from 'react-icons/go'
+import {GoStar} from 'react-icons/go'
 
 const H2 = styled.h2`
    font-size: 20px;
