@@ -49,7 +49,7 @@ const BookDisplay =  props => {
    
    return (
       <BookListContainer style={{minHeight: '100vh'}}>
-         <div style={{position: 'fix', top: '55'}}>
+         <div>
             <Input 
                placeholder='Search Title' 
                name='search'
