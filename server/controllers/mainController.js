@@ -26,12 +26,13 @@ module.exports = {
    },
    addingBook: async(req, res) => {
       const db = req.app.get('db');
-      const {name, genre, image, author} = req.body;
+      const {name, genre, image, author, description} = req.body;
 
-      let bookId = await db.book.adding_book({name, genre, image});
+      let bookId = await db.book.adding_book({name, genre, image, description});
       let authorId = await db.book.adding_author({author});
       
       db.book.connect_book_authors(+bookId[0].book_id, +authorId[0].author_id)
-      
+      .then(() => res.sendStatus(200))
+      .catch(err => res.status(500).send(err))
    }
 }

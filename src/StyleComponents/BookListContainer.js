@@ -6,6 +6,7 @@ const BookListContainer = styled.div`
    align-items: center;
    justify-content: space-around;
    margin-top: 50px;
+   box-shadow: 0px 10px 40px 0px rgba(0,0,0,0.75);
 `;
 
 

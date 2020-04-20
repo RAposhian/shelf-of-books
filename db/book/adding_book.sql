@@ -1,11 +1,13 @@
 insert into books (
    name,
    genre,
-   image
+   image,
+   description
 ) values (
    ${name},
    ${genre},
-   ${image}
+   ${image},
+   ${description}
 )
 returning book_id;
 
