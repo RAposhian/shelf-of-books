@@ -3,7 +3,9 @@ import Button from '../../StyleComponents/Button'
 import styled from 'styled-components';
 import BookStyle from '../../StyleComponents/BookStyle';
 import axios from 'axios';
-import {GoStar} from 'react-icons/go'
+import {GoStar} from 'react-icons/go';
+import {FiStar} from 'react-icons/fi';
+
 
 const H2 = styled.h2`
    font-size: 20px;
@@ -25,11 +27,11 @@ const Book = props => {
       .catch(err => console.log(err));
    }
 
-   const stars = []
+   const stars = [0,0,0,0,0]
    for (let i = 0; i < rating; i++) {
-      stars.push(i)
+      stars.splice(i, 1, 1)
    }
-   let star = stars.map((i) => <GoStar key={i}/>) 
+   let star = stars.map((e, i) => (e === 1) ? <GoStar key={i}/> : <FiStar key={i+1}/>) 
    return (
       <BookStyle>
          <img src={image} alt={name} style={{width: '150px', height: '220px', alignSelf: 'center'}}/>

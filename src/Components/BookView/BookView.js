@@ -3,6 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import { GoStar } from 'react-icons/go';
+import { FiStar } from 'react-icons/fi';
 
 const SingleBookContainer = styled.div`
    display: flex;
@@ -47,11 +48,11 @@ const BookView = props => {
       .catch(err => console.log(err))
    }
    
-   const stars = []
+   const stars = [0,0,0,0,0]
    for (let i = 0; i < rating; i++) {
-      stars.push(i)
+      stars.splice(i, 1, 1)
    }
-   let star = stars.map((i) => <GoStar key={i}/>)   
+   let star = stars.map((e, i) => (e === 1) ? <GoStar key={i}/> : <FiStar key={i+1}/>) 
    return (
       <SingleBookContainer>
          <img src={image} alt={name} style={{width: '200px', alignSelf: 'center'}} />

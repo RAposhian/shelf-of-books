@@ -49,6 +49,7 @@ const H1 = styled.h1`
    font-size: 20px;
    font-weight: bold;
    font-family: 'Notable', sans-serif;
+   letter-spacing: 2px;
 `;
 
 const Landing = props => {

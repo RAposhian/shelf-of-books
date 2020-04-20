@@ -32,7 +32,7 @@ const Collection = props => {
 
 
    return (
-      <BookListContainer style={{height: ''}}>
+      <BookListContainer style={{minHeight: '100vh'}}>
          {books.map((e, i) => (
         <CollectionBook key={i} book={e} handleDelete={handleDelete}/>    
    
