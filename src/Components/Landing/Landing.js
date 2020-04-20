@@ -1,6 +1,5 @@
 import React from 'react';
 import useInput from '../../Hooks/useInput';
-// import useAxios from '../../Hooks/useAxios';
 import {userInfo} from '../../redux/userReducer';
 import {connect} from 'react-redux';
 import axios from 'axios';
@@ -59,8 +58,6 @@ const Landing = props => {
       password: ''
    })
 
-   // const [login, {postLogin}] = useAxios('login');
-   // const [register, {postRegister}] = useAxios('register');
 
    const handleRegister = () => {
       axios.post('/api/register', {username, password})

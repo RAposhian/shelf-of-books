@@ -10,6 +10,7 @@ const Container = styled.div`
   height: auto;
   width: 100vw;
   position: relative;
+  font-family: sans-serif;
 `;
 
 function App(props) {

@@ -7,15 +7,21 @@ import { GoStar } from 'react-icons/go';
 const SingleBookContainer = styled.div`
    display: flex;
    flex-direction: column;
-   margin-top: 50px;
-   padding: 10px;
+   justify-content: space-around;
+   padding: 15px;
+   padding-bottom: 100px;
    height: 100vh;
 `;
 
 const H2 = styled.h2`
-   font-size: 20px;
+   font-size: 25px;
    font-weight: bold;
    margin: 2px;
+   margin-bottom: 20px;
+`;
+
+const Description = styled.p`
+   margin-top: 20px;
 `;
 
 const BookView = props => {
@@ -36,7 +42,6 @@ const BookView = props => {
    const handleSubmit = ratingInput => {
       axios.put('/api/rating', {ratingInput, book_id, collection_id: props.user.collection_id})
       .then(() => {
-         // setToggle(false)
          handleGet();
       })
       .catch(err => console.log(err))
@@ -50,20 +55,23 @@ const BookView = props => {
    return (
       <SingleBookContainer>
          <img src={image} alt={name} style={{width: '200px', alignSelf: 'center'}} />
-         <H2>{name}</H2>
-         <h2>By: {author}</h2>
-         <h2>Genre: {genre}</h2>
          <div>
-            <h2>Your Rating:{star}</h2>
-            <select onChange={e => handleSubmit(e.target.value)}>
-               <option value={1}>1</option>
-               <option value={2}>2</option>
-               <option value={3}>3</option>
-               <option value={4}>4</option>
-               <option value={5}>5</option>
-            </select>
+            <H2>{name}</H2>
+            <h2>{author}</h2>
+            <h2>{genre}</h2>
+            <div style={{marginTop: '20px'}}>
+               <h2 style={{marginBottom: '5px'}}>{star}</h2>
+               <select onChange={e => handleSubmit(e.target.value)}>
+                  <option>Update Your Rating</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+               </select>
+            </div>
+            <Description>{description}</Description>
          </div>
-         <p>Description: <br/> {description}</p>
       </SingleBookContainer>
    )
 }
