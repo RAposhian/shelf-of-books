@@ -4,7 +4,7 @@ const BookStyle = styled.div`
    display: flex;
    flex-direction: column;
    width: 250px;
-   height: 350px;
+   height: 375px;
    margin: 25px;
    background-color: #999999;
    border: .5px solid black;
