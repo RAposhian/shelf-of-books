@@ -3,7 +3,7 @@ const express = require('express'),
       session = require('express-session'),
       massive = require('massive'),
       authCtrl = require('./controllers/authController'),
-      mainCtrl = require('./controllers/mainController'),
+      bookCtrl = require('./controllers/bookController'),
       collCtrl = require('./controllers/collectionController'),
       profileCtrl = require('./controllers/profileController'),
       {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env,
@@ -36,10 +36,10 @@ app.get(`/api/logout`, authCtrl.logout);
 app.get(`/api/user`, authCtrl.getUser);
 
 //book list endpoints
-app.get(`/api/books`, mainCtrl.getAllBooks);
-app.get(`/api/rating/:id`, mainCtrl.averageRating);
-app.get(`/api/book/:id`, mainCtrl.getSingleBook);
-app.post(`/api/book`, mainCtrl.addingBook);
+app.get(`/api/books`, bookCtrl.getAllBooks);
+app.get(`/api/rating/:id`, bookCtrl.averageRating);
+app.get(`/api/book/:id`, bookCtrl.getSingleBook);
+app.post(`/api/book`, bookCtrl.addingBook);
 
 //collection endpoints
 app.get(`/api/collection/:id`, collCtrl.getCollection);
