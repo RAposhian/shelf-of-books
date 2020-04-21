@@ -5,6 +5,7 @@ const express = require('express'),
       authCtrl = require('./controllers/authController'),
       mainCtrl = require('./controllers/mainController'),
       collCtrl = require('./controllers/collectionController'),
+      profileCtrl = require('./controllers/profileController'),
       {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env,
       app = express(),
       port = SERVER_PORT;
@@ -45,3 +46,7 @@ app.get(`/api/collection/:id`, collCtrl.getCollection);
 app.post(`/api/collection-book`, collCtrl.addBook);
 app.delete(`/api/collection/:id`, collCtrl.removeBook);
 app.put('/api/rating', collCtrl.updateRating);
+
+//profile endpoints
+app.post(`/api/username`, profileCtrl.updateUsername);
+app.get(`/api/username`, profileCtrl.checkUsername);

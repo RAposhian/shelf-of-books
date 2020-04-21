@@ -34,3 +34,4 @@ export default withRouter(App);
 // Slate Gray: #5C656D
 // Rusty Orange: #DE7D00
 // Ash Gray: #999999
+//Blue: #1e00de

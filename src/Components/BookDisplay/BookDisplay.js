@@ -41,7 +41,6 @@ const BookDisplay =  props => {
             let book = res.data.filter((e, i) => e.name.toLowerCase().includes(search.toLowerCase())) 
             setBooks(book)
          } else {
-
             setBooks(res.data);
          }
       })
