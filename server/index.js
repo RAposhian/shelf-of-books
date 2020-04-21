@@ -50,3 +50,4 @@ app.put('/api/rating', collCtrl.updateRating);
 //profile endpoints
 app.post(`/api/username`, profileCtrl.updateUsername);
 app.get(`/api/username`, profileCtrl.checkUsername);
+app.post(`/api/profilepicture`, profileCtrl.updatePicture);

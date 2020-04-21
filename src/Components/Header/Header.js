@@ -61,7 +61,7 @@ class Header extends Component {
    render() {
       return (
          <Links>
-         <img src={this.state.user.image} alt={this.state.user.username} style={{width: '30px'}} onClick={()=>this.props.history.push('/profile')} />
+         <img src={this.state.user.image} alt={this.state.user.username} style={{width: '30px', height: '50px'}} onClick={()=>this.props.history.push('/profile')} />
          <p onClick={()=>this.props.history.push('/bookdisplay')}>Books</p>
          <p onClick={()=>this.props.history.push('/collection')} >Collection</p>
          <p onClick={()=>this.props.history.push('/addbook')} >+</p>

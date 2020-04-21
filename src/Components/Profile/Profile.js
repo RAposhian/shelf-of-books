@@ -37,10 +37,12 @@ const UsernameContainer = styled.div`
 
 const Profile = props => {
    const [toggle, setToggle] = useState(false);
+   const [image, setImage] = useState('');
    const [{username}, {setInput}] = useInput({
       username: ''
-   })
-   
+   });
+
+
    const handleSubmit = () => {
       if(!username) {
          return window.alert('Username cannot be blank');
@@ -50,7 +52,6 @@ const Profile = props => {
          if (res.data) {
             axios.post(`/api/username`, {username: props.user.username, newUsername: username})
             .then(response => {
-               console.log(response.data)
                props.userInfo(response.data)
                setToggle(false)
             })
@@ -58,29 +59,71 @@ const Profile = props => {
       })
    }
 
+   const handlePicture = () => {
+      axios.post(`/api/profilepicture`, {image, username: props.user.username})
+      .then(res => props.userInfo(res.data))
+      .catch(err => console.log(err))
+      
+   }
+
+   const uploadImage = async e => {
+      const files = e.target.files
+      const data = new FormData()
+      data.append("file", files[0])
+      data.append('upload_preset', 'refternu')
+      const res = await fetch (
+        'https://api.cloudinary.com/v1_1/desyiuzzn/image/upload', 
+        {
+          method: 'POST',
+          body: data
+        }
+      )
+      const file = await res.json()
+      setImage(file.secure_url)
+    }
+
    return (
       <ProfileContainer>
          <UsernameContainer>
-         <img 
-            src={props.user.image} 
-            alt={props.user.username}
-            style={{width: '300px', border: '2px solid black'}} />
-         
+            <div>
+               {image ? 
+               (
+                  <img 
+                  src={image} 
+                  alt={props.user.username}
+                  style={{width: '300px', height: '350px', border: '2px solid black'}} />
+               ) :
+               (
+               <img 
+                  src={props.user.image} 
+                  alt={props.user.username}
+                  style={{width: '300px', height: '350px', border: '2px solid black'}} />
+               )
+               }
+               <input 
+                  type='file'
+                  name='file'
+                  placeholder='Upload New Image'
+                  onChange={uploadImage} />
+               <Button onClick={handlePicture}>Submit</Button>
+            </div>
          {toggle ?
          (
             <div>
+               <H2>{props.user.username}</H2>
                <input 
                   name='username' 
                   value={username}
                   placeholder='Username'
                   onChange={e => setInput(e)} />
                <Button onClick={handleSubmit} >Submit</Button>
+               <Button onClick={() => setToggle(false)}>Cancel</Button>
             </div>
          ) :
          (
             <div>
                <H2>{props.user.username}</H2>
-               <Button onClick={() => setToggle(true)} >Edit Username</Button>
+               <Button onClick={() => setToggle(true)} >Edit</Button>
             </div>
          )
 
