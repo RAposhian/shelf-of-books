@@ -22,6 +22,14 @@ const H2 = styled.h2`
    margin: 2px;
 `;
 
+const Input = styled.input`
+   width: 150px;
+   margin: 5px;
+   height: 20px;
+   border: none;
+   text-align: center
+`;
+
 const UsernameContainer = styled.div`
    display: flex;
    flex-direction: column;
@@ -80,7 +88,7 @@ const Profile = props => {
       )
       const file = await res.json()
       setImage(file.secure_url)
-    }
+   }
 
    return (
       <ProfileContainer>
@@ -100,7 +108,7 @@ const Profile = props => {
                   style={{width: '300px', height: '350px', border: '2px solid black'}} />
                )
                }
-               <input 
+               <Input 
                   type='file'
                   name='file'
                   placeholder='Upload New Image'
@@ -111,7 +119,7 @@ const Profile = props => {
          (
             <div>
                <H2>{props.user.username}</H2>
-               <input 
+               <Input 
                   name='username' 
                   value={username}
                   placeholder='Username'
@@ -126,7 +134,6 @@ const Profile = props => {
                <Button onClick={() => setToggle(true)} >Edit</Button>
             </div>
          )
-
          }
          </UsernameContainer>
 

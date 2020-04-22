@@ -7,11 +7,24 @@ import styled from 'styled-components';
 import Button from '../../StyleComponents/Button'
 
 
-const Background = styled.div`
+const Background = styled.div` 
    height: 81.5vh;
    width: 100wv;
    padding-left: 35px;
    padding-top: 150px;
+
+   @media (min-width:750px) {
+      height: 75vh;
+      padding-left: 200px;
+      padding-top: 260px;
+   }
+
+   @media (min-width: 1300px) {
+      height: 80vh;
+      padding-left: 700px;
+      padding-top: 200px;
+        
+   }
 `;
 
 const LandingContainer = styled.div`
@@ -24,6 +37,16 @@ const LandingContainer = styled.div`
    width: 300px;
    height: 400px;   
    box-shadow: 0px 10px 40px 0px rgba(0,0,0,0.75);
+
+   @media (min-width:750px) {
+      width: 350px;
+      height: 450px;
+   }
+
+   @media (min-width: 1300px) {
+      width: 500px;
+      height: 600px  
+   }
 `;
 
 const InputContainer = styled.section`
@@ -40,7 +63,12 @@ const Input = styled.input`
    margin: 5px;
    height: 20px;
    border: none;
-   text-align: center
+   text-align: center;
+
+   @media (min-width: 750px) {
+      width: 200px;
+      height: 25px
+   }
 `;
 
 const H1 = styled.h1`
@@ -50,6 +78,26 @@ const H1 = styled.h1`
    font-weight: bold;
    font-family: 'Notable', sans-serif;
    letter-spacing: 2px;
+
+   @media (min-width: 750px) {
+      font-size: 22px
+   }
+
+   @media (min-width: 1300px) {
+      font-size: 30px
+   }
+`;
+
+const Image = styled.img`
+   width: 165px;
+
+   @media (min-width: 750px) {
+      width: 200px
+   }
+
+   @media (min-width: 1300px) {
+      
+   }
 `;
 
 const Landing = props => {
@@ -83,7 +131,7 @@ const Landing = props => {
       <Background>
          <LandingContainer>
             <H1>Shelf of Books</H1>
-            <img src='https://res.cloudinary.com/desyiuzzn/image/upload/v1586799305/refternu/xhdydkaq9ic5r1gg3iix.png' alt='bookShelf' style={{width: '165px'}}/>
+            <Image src='https://res.cloudinary.com/desyiuzzn/image/upload/v1586799305/refternu/xhdydkaq9ic5r1gg3iix.png' alt='bookShelf'/>
             <InputContainer>
                <Input 
                   name='username' 

@@ -20,6 +20,17 @@ const Links = styled.div`
    letter-spacing: 1px;
 `;
 
+const Image = styled.img`
+  width: 47px;
+  height: 47px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  @media (min-width: 700px) {
+   width: 60px;
+  } 
+`;
+
 
 class Header extends Component {
    constructor(props) {
@@ -60,8 +71,8 @@ class Header extends Component {
 
    render() {
       return (
-         <Links>
-         <img src={this.state.user.image} alt={this.state.user.username} style={{width: '30px', height: '50px'}} onClick={()=>this.props.history.push('/profile')} />
+      <Links>
+         <Image src={this.state.user.image} alt={this.state.user.username} onClick={()=>this.props.history.push('/profile')} />
          <p onClick={()=>this.props.history.push('/bookdisplay')}>Books</p>
          <p onClick={()=>this.props.history.push('/collection')} >Collection</p>
          <p onClick={()=>this.props.history.push('/addbook')} >+</p>

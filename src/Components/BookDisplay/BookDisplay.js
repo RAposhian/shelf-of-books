@@ -8,11 +8,30 @@ import styled from 'styled-components';
 import Button from '../../StyleComponents/Button';
 
 const Input = styled.input`
-   width: 150px;
+   width: 200px;
    margin: 5px;
    height: 27px;
    border: none;
    text-align: center
+`;
+
+const InputDiv = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 40px;
+   width: 300px;
+   margin-top: 50px;
+   margin-left: 40px;
+
+   @media (min-width: 750px) {
+      margin-left: 250px
+   }
+
+   @media (min-width: 1300px) {
+      margin-left: 800px;
+   }
 `;
 
 
@@ -47,19 +66,24 @@ const BookDisplay =  props => {
    }
    
    return (
-      <BookListContainer style={{minHeight: '100vh'}}>
-         <div>
-            <Input 
-               placeholder='Search Title' 
-               name='search'
-               value={search} 
-               onChange={e => setInput(e)} />
-            <Button onClick={handleGet}>Submit</Button>   
-         </div>   
-         {books.map((e, i) => (
-         <Book key={i} handleAdd={handleAdd} book={e}/>
-      ))}
-   </BookListContainer>
+      <>
+         <InputDiv>
+            <div>
+               <Input 
+                  placeholder='Search Title' 
+                  name='search'
+                  value={search} 
+                  style={{marginTop: '50px'}}
+                  onChange={e => setInput(e)} />
+               <Button onClick={handleGet}>Submit</Button>   
+            </div>
+         </InputDiv>   
+         <BookListContainer style={{minHeight: '100vh'}}>
+            {books.map((e, i) => (
+            <Book key={i} handleAdd={handleAdd} book={e}/>
+         ))}
+         </BookListContainer>
+      </>
    )
 }
 
