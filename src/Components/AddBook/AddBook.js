@@ -23,6 +23,7 @@ const InputContainer = styled.div`
    border-radius: 15px;
    box-shadow: 0px 10px 40px 0px rgba(0,0,0,0.75);
    margin-top: 20px
+
 `;
 
 const Input = styled.input`
