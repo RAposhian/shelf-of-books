@@ -50,7 +50,7 @@ const AddBook = props => {
       data.append("file", files[0])
       data.append('upload_preset', 'refternu')
       const res = await fetch (
-        'https://api.cloudinary.com/v1_1/desyiuzzn/image/upload', 
+         process.env.REACT_APP_UPLOAD_STRING, 
         {
           method: 'POST',
           body: data
