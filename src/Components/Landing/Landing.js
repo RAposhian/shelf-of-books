@@ -131,7 +131,7 @@ const Landing = props => {
       <Background>
          <LandingContainer>
             <H1>Shelf of Books</H1>
-            <Image src='https://res.cloudinary.com/desyiuzzn/image/upload/v1586799305/refternu/xhdydkaq9ic5r1gg3iix.png' alt='bookShelf'/>
+            <Image src={process.env.REACT_APP_BOOKSHELF_STRING} alt='bookShelf'/>
             <InputContainer>
                <Input 
                   name='username' 
